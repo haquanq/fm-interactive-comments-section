@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --clr-red-500: hsl(358, 79%, 66%);
+        --clr-red-200: hsl(357, 100%, 86%);
+
+        --clr-blue-900: hsl(212, 24%, 26%);
+        --clr-blue-500: hsl(238, 40%, 52%);
+        --clr-blue-200: hsl(211, 10%, 45%);
+        --clr-blue-100: hsl(239, 57%, 85%);
+
+        --clr-gray-100: hsl(223, 19%, 93%);
+        --clr-gray-50: hsl(228, 33%, 97%);
+
+        --clr-white: hsl(0, 0%, 100%);
+
+        --font-main: "Rubik", sans-serif;
+
+        --text-body: 1rem;
+
+        --font-normal: 400;
+        --font-medium: 500;
+        --font-bold: 700;
+    }
+    body {
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        font-family: var(--font-main);
+    }
+    textarea,
+    input,
+    button {
+        font: inherit;
+    }
+
+    .replying-name {
+        @apply text-blue-500 bg-gray-100;
+    }
+
+    .focus-vi {
+        @apply focus-visible:outline-dashed focus-visible:outline-[2px] focus-visible:outline-offset-[4px] focus-visible:outline-blue-500;
+    }
+    .focus-w {
+        @apply focus-within:outline-dashed focus-within:outline-[2px] focus-within:outline-offset-[4px] focus-within:outline-blue-500;
+    }
+}
