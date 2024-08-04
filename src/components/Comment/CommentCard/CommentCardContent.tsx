@@ -22,7 +22,7 @@ export const CommentCardContent = (props: CommentCardContentProps) => {
       const userProfile = getUserProfile(userId);
       const textContent = userProfile ? userProfile.username : "not_found";
 
-      return `<a class="user-tag" href="">@${textContent}</a>`;
+      return `<a class="text-blue-500 font-medium hover-support:hover:underline transition-colors" href="">@${textContent}</a>`;
     });
   };
 
