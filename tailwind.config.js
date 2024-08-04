@@ -14,6 +14,11 @@ export default {
       body: "1rem",
       md: "1.0625rem",
     },
+    fontWeight: {
+      normal: 400,
+      medium: 500,
+      bold: 700,
+    },
     lineHeight: {
       none: "1",
       paragraph: "1.5rem",
