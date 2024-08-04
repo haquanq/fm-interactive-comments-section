@@ -5,10 +5,14 @@
 @layer base {
     :root {
         --clr-red-500: hsl(358, 79%, 66%);
+        --clr-red-500-hsl: 358 79% 66%;
         --clr-red-200: hsl(357, 100%, 86%);
+        --clr-red-200-hsl: 357 100% 86%;
 
         --clr-blue-900: hsl(212, 24%, 26%);
+        --clr-blue-900-hsl: 212 24% 26%;
         --clr-blue-500: hsl(238, 40%, 52%);
+        --clr-blue-500-hsl: 238, 40%, 52%;
         --clr-blue-200: hsl(211, 10%, 45%);
         --clr-blue-100: hsl(239, 57%, 85%);
 
@@ -39,18 +43,10 @@
         display: none !important;
     }
 
-    .user-tag {
-        @apply text-blue-500 bg-gray-100;
-    }
-
-    .user-tag-bold {
-        @apply text-blue-500 bg-gray-100 font-bold;
-    }
-
     .focus-outline {
-        @apply focus-visible:outline focus-visible:outline-[2px] focus-visible:outline-offset-[4px] focus-visible:outline-blue-500;
+        @apply focus-visible:outline-dashed focus-visible:outline-[2px] focus-visible:outline-offset-[4px] focus-visible:outline-blue-500;
     }
     .focus-w {
-        @apply focus-within:outline focus-within:outline-[2px] focus-within:outline-offset-[4px] focus-within:outline-blue-500;
+        @apply focus-within:outline-dashed focus-within:outline-[2px] focus-within:outline-offset-[4px] focus-within:outline-blue-500;
     }
 }
