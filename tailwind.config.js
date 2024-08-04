@@ -37,7 +37,7 @@ export default {
       },
       blue: {
         900: "var(--clr-blue-900)",
-        500: "var(--clr-blue-500)",
+        500: "hsl(var(--clr-blue-500-hsl))",
         200: "var(--clr-blue-200)",
         100: "var(--clr-blue-100)",
       },
@@ -47,7 +47,11 @@ export default {
       },
       white: "var(--clr-white)",
     },
-    extend: {},
+    extend: {
+      borderRadius: {
+        inherit: "inherit",
+      },
+    },
   },
   plugins: [
     plugin(function ({ addVariant }) {
