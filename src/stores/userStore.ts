@@ -67,32 +67,40 @@ export const userStoreState: UserStoreState = store;
 
 export const userStoreAction: UserStoreAction = {
     upvoteComment: function (commentId: string): number {
-        const downvoted =
-            store.votedComments[commentId] &&
-            store.votedComments[commentId] == 1;
+        let val = store.votedComments[commentId];
+        let step = 0;
 
-        const val = downvoted ? 0 : 1;
+        if (!val) {
+            val = 1;
+            step = 1;
+        } else if (val == 1) {
+            val = 0;
+            step = -1;
+        } else if (val == -1) {
+            val = 1;
+            step = 2;
+        }
 
-        setStore("votedComments", (prev) => ({
-            ...prev,
-            [commentId]: val,
-        }));
-
-        return val == 0 ? -1 : val;
+        setStore("votedComments", commentId, val);
+        return step;
     },
     downvoteComment: function (commentId: string): number {
-        const upvoted =
-            store.votedComments[commentId] &&
-            store.votedComments[commentId] == -1;
+        let val = store.votedComments[commentId];
+        let step = 0;
 
-        const val = upvoted ? 0 : -1;
+        if (!val) {
+            val = -1;
+            step = -1;
+        } else if (val == -1) {
+            val = 0;
+            step = 1;
+        } else if (val == 1) {
+            val = -1;
+            step = -2;
+        }
 
-        setStore("votedComments", (prev) => ({
-            ...prev,
-            [commentId]: val,
-        }));
-
-        return val == 0 ? 1 : val;
+        setStore("votedComments", commentId, val);
+        return step;
     },
     findUserIndex(userId: string): number {
         let idx = store.userMap[userId];
