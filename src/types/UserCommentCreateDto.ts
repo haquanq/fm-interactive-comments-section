@@ -1,6 +1,5 @@
-export type UserComment = {
-    id: string;
-    parentId?: string;
+export type UserCommentCreateDto = {
+    parentId: string;
     content: string;
     createdAt: string;
     score: number;

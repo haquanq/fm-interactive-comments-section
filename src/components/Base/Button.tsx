@@ -5,7 +5,7 @@ interface ButtonProps extends JSX.HTMLAttributes<HTMLButtonElement> {
   variant: "primary" | "secondary" | "danger";
 }
 
-export function Button(props: ButtonProps) {
+export const Button = (props: ButtonProps) => {
   const [_, otherProps] = splitProps(props, ["class", "children"]);
 
   return (
@@ -24,4 +24,4 @@ export function Button(props: ButtonProps) {
       {props.children}
     </button>
   );
-}
+};

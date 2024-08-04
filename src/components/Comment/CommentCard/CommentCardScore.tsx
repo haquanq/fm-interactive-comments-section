@@ -1,16 +1,37 @@
+import { commentStoreAction } from "@/stores/commentStore";
+import { userStoreAction } from "@/stores/userStore";
+
 interface CommentCardScoreProps {
-  score: string;
-  handleScoreIncrement: () => void;
-  handleScoreDecrement: () => void;
+  commentId: string;
+  commentScore: number;
 }
 
 export const CommentCardScore = (props: CommentCardScoreProps) => {
+  const { updateComment } = commentStoreAction;
+  const { upvoteComment, downvoteComment } = userStoreAction;
+
+  const handleUpvote = () => {
+    const scoreChange = upvoteComment(props.commentId);
+    updateComment({
+      id: props.commentId,
+      score: props.commentScore + scoreChange,
+    });
+  };
+
+  const handleDownvote = () => {
+    const scoreChange = downvoteComment(props.commentId);
+    updateComment({
+      id: props.commentId,
+      score: props.commentScore + scoreChange,
+    });
+  };
+
   return (
     <div class="focus-w flex items-center justify-between rounded-lg bg-gray-50 w-[6.25rem] h-[2.5rem] tablet:w-[2.5rem] tablet:h-[6.25rem] tablet:flex-col a">
       <button
         class="px-3 active:scale-90 transition-transform h-full group outline-none tablet:pt-[0.6875rem] tablet:pb-[0.875rem] tablet:h-fit tablet:w-ful tablet:px-0 tablet:pl-[1px]"
-        onclick={props.handleScoreIncrement}
-        aria-label="Increase score"
+        onclick={handleUpvote}
+        aria-label="Upvote"
       >
         <svg
           class="group-focus-visible:scale-125 transition-transform"
@@ -25,11 +46,14 @@ export const CommentCardScore = (props: CommentCardScoreProps) => {
           />
         </svg>
       </button>
-      <span class="text-md text-blue-500 font-medium ">{props.score}</span>
+      <span
+        class="text-md text-blue-500 font-medium"
+        textContent={props.commentScore}
+      ></span>
       <button
         class="px-3 active:scale-90 transition-transform h-full group outline-none tablet:py-4 tablet:h-fit tablet:w-ful tablet:px-0 tablet:pl-[1px]"
-        onclick={props.handleScoreDecrement}
-        aria-label="Decrease score"
+        onclick={handleDownvote}
+        aria-label="Downvote"
       >
         <svg
           class="group-focus-visible:scale-125 transition-transform"

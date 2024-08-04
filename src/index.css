@@ -35,15 +35,22 @@
     button {
         font: inherit;
     }
+    [hidden] {
+        display: none !important;
+    }
 
-    .replying-name {
+    .user-tag {
         @apply text-blue-500 bg-gray-100;
     }
 
-    .focus-vi {
-        @apply focus-visible:outline-dashed focus-visible:outline-[2px] focus-visible:outline-offset-[4px] focus-visible:outline-blue-500;
+    .user-tag-bold {
+        @apply text-blue-500 bg-gray-100 font-bold;
+    }
+
+    .focus-outline {
+        @apply focus-visible:outline focus-visible:outline-[2px] focus-visible:outline-offset-[4px] focus-visible:outline-blue-500;
     }
     .focus-w {
-        @apply focus-within:outline-dashed focus-within:outline-[2px] focus-within:outline-offset-[4px] focus-within:outline-blue-500;
+        @apply focus-within:outline focus-within:outline-[2px] focus-within:outline-offset-[4px] focus-within:outline-blue-500;
     }
 }
