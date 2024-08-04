@@ -1,10 +1,9 @@
 import { For, Show, createSignal } from "solid-js";
 
-import { CommentCard } from "@/components/Comment/CommentCard/CommentCard";
-import { CommentDeleteModal } from "@/components/Comment/CommentDeleteModal/CommentDeleteModal";
+import { CommentCard } from "@/components/Comment/CommentCard";
 import { commentStoreState } from "@/stores/commentStore";
-
-import { CommentCreate } from "@/components/Comment/CommentCreate/CommentCreate";
+import { CommentCreate } from "../Comment/CommentCreate";
+import { CommentDeleteModal } from "../Comment/CommentDeleteModal";
 
 export const Home = () => {
   const [replies, setReplies] = createSignal<{ [key: string]: string[] }>({});
